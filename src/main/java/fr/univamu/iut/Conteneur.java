@@ -1,6 +1,9 @@
 package fr.univamu.iut;
 
+import fr.univamu.iut.exo2.GestionDistances;
+
 import java.io.Serializable;
+import java.sql.Struct;
 
 public class Conteneur implements Serializable {
 
@@ -21,6 +24,11 @@ public class Conteneur implements Serializable {
         return "Conteneur expédié par la société " +
                 expediteur +
                 ", de poids " + poids +
-                " et à destination de " + destination;
+                " et à destination de " + destination + "à" + getDistance() + "km";
+    }
+
+    public Integer getDistance(){
+
+        return GestionDistances.getDistance(this.destination);
     }
 }
